@@ -1,0 +1,21 @@
+uri: 'http://http.debian.net/debian/pool/main/liba/libaria/libaria_2.8.0+repack.orig.tar.bz2'
+md5sum: d4adcc4e01e211ee3559d807f400f7d9
+install-script: |
+  #!/bin/bash
+  set -o errexit
+  make -j $(nproc)
+  LD_LIBRARY_PATH=lib make params
+  echo "Uninstall previous version of libaria-sourcedep"
+  sudo dpkg -P libaria-sourcedep
+  echo "About to run checkinstall make install"
+  sudo checkinstall -y --nodoc --pkgname=libaria-sourcedep --pkgversion=2.8.0 make --ignore-errors install
+check-presence-script: |
+  #!/bin/bash
+  if test "x`dpkg-query -W -f='${Package} ${Status} ${Version}\n' libaria-sourcedep`" != 'xlibaria-sourcedep install ok installed 2.8.0-1'; then
+    echo "libaria-sourcedep not installed"
+    exit 1
+  else
+    exit 0
+  fi
+exec-path: libaria-2.8.0.orig
+depends: [checkinstall ]

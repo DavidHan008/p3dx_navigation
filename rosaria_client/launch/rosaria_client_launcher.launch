@@ -1,0 +1,8 @@
+<launch>
+	<node pkg = "rosaria" type = "RosAria" name = "RosAria">
+		<param name="port" value="/dev/ttyUSB0" type="string"/>
+	</node>
+
+	<node pkg="rosaria_client" type="interface" name="RosAria_interface" output="screen"/>
+
+</launch>

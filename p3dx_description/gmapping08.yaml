@@ -1,0 +1,7 @@
+image: /home/davidhan/catkin_ws/src/p3dx_description/gmapping08.pgm
+resolution: 0.020000
+origin: [-19.920000, -30.160000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

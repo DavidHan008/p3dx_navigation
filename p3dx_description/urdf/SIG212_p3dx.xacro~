@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<robot name="pioneer3dx_k" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find p3dx_description)/urdf/pioneer3dx.xacro" />
+</robot>
+

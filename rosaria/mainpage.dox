@@ -1,0 +1,16 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+The <b>rosaria</b> package provides the RosAria ROS node, which uses ARIA to
+communicate with a mobile robot platform from Adept MobileRobots (formerly
+MobileRobots Inc, formerly ActivMedia Robotics).  The RosAria node is
+implemented in the RosAriaNode class.
+
+More information is availale at http://wiki.ros.org/rosaria and
+http://wiki.ros.org/Robots/Pioneer.
+
+
+
+
+*/

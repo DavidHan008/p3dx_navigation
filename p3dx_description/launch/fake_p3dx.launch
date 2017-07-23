@@ -1,0 +1,13 @@
+<launch>
+  <param name="/use_sim_time" value="false" />
+
+  <!--载入先锋的模型 -->
+<param name="robot_description"
+		command="$(find xacro)/xacro.py '$(find p3dx_description)/urdf/SIG212_p3dx.xacro'" />
+		
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+      <param name="publish_frequency" type="double" value="20.0" />
+  </node>
+</launch>

@@ -1,0 +1,11 @@
+<launch>
+
+<!-- Starting rosaria driver for motors and encoders -->
+  <node name="rosaria" pkg="rosaria" type="RosAria" >
+  <param name="DriftFactor" value="20"/>
+  <param name="TicksMM" value="124"/> 
+  <remap from="rosaria/cmd_vel" to="cmd_vel"/>
+  <remap from="rosaria/pose" to="odom"/>
+  </node>
+
+</launch>

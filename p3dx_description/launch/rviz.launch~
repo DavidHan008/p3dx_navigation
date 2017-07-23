@@ -1,0 +1,14 @@
+<launch>
+
+  <arg name="model" default="$(find p3dx_description)/urdf/pioneer3dx.xml"/>
+  <arg name="gui" default="False" />
+  <param name="robot_description" textfile="$(arg model)" />
+  <param name="use_gui" value="$(arg gui)"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+ <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_description)/SIG212.yaml"/>
+
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find amr_robots_launchfiles)/rosaria.rviz" />
+</launch>

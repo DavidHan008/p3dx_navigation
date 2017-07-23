@@ -1,0 +1,18 @@
+<launch>
+	<node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" args="/scan">
+		<param name="delta" type="double" value="0.05" />
+		<param name="temporalUpdate" type="double" value="2.5" />
+		<param name="xmin" type="double" value="-2" />
+		<param name="xmax" type="double" value="2" />
+		<param name="ymin" type="double" value="-2" />
+		<param name="ymax" type="double" value="2" />
+		<param name="particles" value="40"/>
+		<param name="srr" value="0.01"/>
+    		<param name="srt" value="0.02"/>
+   		<param name="str" value="0.01"/>
+   		<param name="stt" value="0.02"/>
+   		<param name="linearUpdate" value="0.05"/>
+    		<param name="angularUpdate" value="0.0436"/>
+		<param name="minimumScore" value="10"/>
+	</node>
+</launch>

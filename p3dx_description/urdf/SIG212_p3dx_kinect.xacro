@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<robot name="pioneer3dx_k" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find p3dx_description)/urdf/pioneer3dx.xacro" />
+  <xacro:include filename="$(find turtlebot_description)/urdf/sensors/kinect.urdf.xacro"/>
+  <property name="cam_px" value="0.13" />
+  <property name="cam_py" value="0" />
+  <property name="cam_pz" value="0.50" />
+  <property name="cam_or" value="0" />
+  <property name="cam_op" value="0" />
+  <property name="cam_oy" value="0" />
+  <sensor_kinect  parent="base_link"/>
+
+  <link name="post">
+		<inertial>
+			<mass value="0.1" />
+			<origin xyz="0 0 0" />
+			<inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1" />
+		</inertial>
+		<visual name="post_visual">
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<box size="0.27 0.65 0.01" />
+			</geometry>
+			<material name="post_color"><color rgba="0 0.5 0.5 1"/></material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<box size="0.27 0.65 0.01" />
+			</geometry>
+		</collision>
+  </link>
+  
+  <joint name="base_post" type="fixed">
+		<origin xyz="-0.15 0 0.25" rpy="0 0 0" />
+		<parent link="base_link" />
+		<child link="post" />
+  </joint>
+<link name="post1">
+		<inertial>
+			<mass value="0.1" />
+			<origin xyz="0 0 0" />
+			<inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1" />
+		</inertial>
+		<visual name="post_visual">
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<box size="0.01 0.65 0.25" />
+			</geometry>
+			<material name="post_color"><color rgba="0 0.5 0.5 1"/></material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<box size="0.01 0.65 0.25" />
+			</geometry>
+		</collision>
+  </link>
+  
+  <joint name="base_post1" type="fixed">
+		<origin xyz="-0.03 0 0.375" rpy="0 0 0" />
+		<parent link="base_link" />
+		<child link="post1" />
+  </joint>
+  
+</robot>
+

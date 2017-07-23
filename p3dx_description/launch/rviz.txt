@@ -1,0 +1,27 @@
+rosrun rviz rviz -d `rospack find amr_robots_launchfiles`/rosaria.rviz
+rosrun rviz rviz -d `rospack find rbx1_nav`/nav_test.rviz
+rosrun rviz rviz -d `rospack find rbx1_nav`/amcl.rviz
+
+
+rosrun topic_tools relay /RosAria/lms1xx_1_laserscan scan
+
+1号桌子的位置点:
+rostopic pub /initialpose geometry_msgs/PoseWithCovarianceStamped '1 0 map 0 0 0 0 0 0 1 0.25'
+ 
+
+
+2号桌子的位置点:
+rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '{ header: { frame_id: "map" }, pose: { position: { x: 3.765, y: 3.899, z: 0 }, orientation: { x: 0, y: 0, z: 0, w: 1 } } }'
+
+3号桌子的位置点:
+rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '{ header: { frame_id: "map" }, pose: { position: { x: -1.473, y: 3.515, z: 0 }, orientation: { x: 0, y: 0, z: 0, w: 1 } } }'
+
+
+初始位置点:
+rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '{ header: { frame_id: "map" }, pose: { position: { x: 0.0, y: 0.0, z: 0 }, orientation: { x: 0, y: 0, z: 0, w: 1 } } }'
+
+rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '{ header: { frame_id: "base_link" }, pose: { position: { x: 1.00, y: 0.00, z: 0 }, orientation: { x: 0, y: 0, z: 0, w: 1 } } }'
+
+
+改进算法的命令：
+  <param name="base_global_planner" value="RAstar_planner/RAstarPlannerROS"/> 

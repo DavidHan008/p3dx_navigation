@@ -1,0 +1,9 @@
+<launch>
+  <!-- Run the map server with a blank map -->
+ 
+ <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_description)/gmapping07.yaml"/>
+    
+ 
+
+
+</launch>

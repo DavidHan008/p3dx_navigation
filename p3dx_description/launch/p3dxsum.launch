@@ -1,0 +1,6 @@
+<launch>
+ <include file="$(find p3dx_description)/launch/p3dx.launch" />
+ <include file="$(find p3dx_description)/launch/fake_p3dx.launch" />
+ <include file="$(find lms1xx)/launch/LMS1xx.launch" />
+ <include file="$(find p3dx_description)/launch/p3dx_move_base_SIG212_map.launch" />
+</launch>

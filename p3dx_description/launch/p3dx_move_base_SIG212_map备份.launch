@@ -1,0 +1,24 @@
+<launch>
+  <!-- Run the map server with a blank map -->
+ 
+ <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_description)/follower2_gmapping.yaml"/>
+    
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+    <rosparam file="$(find p3dx_description)/config/map/p3dx_costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find p3dx_description)/config/map/p3dx_costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find p3dx_description)/config/map/p3dx_local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find p3dx_description)/config/map/p3dx_global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find p3dx_description)/config/planner/p3dx_dwa_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find p3dx_description)/config/planner/p3dx_global_planner_params.yaml" command="load" />
+    <rosparam file="$(find p3dx_description)/config/planner/p3dx_move_base_params.yaml" command="load" />
+    <rosparam file="$(find p3dx_description)/config/planner/p3dx_navfn_global_planner_params.yaml" command="load" />
+  </node>
+
+  <!-- Run a static transform between /odom and /map -->
+  <node pkg="tf" type="static_transform_publisher" name="odom_map_broadcaster" args="0.0, 0.0 0 0 0 1 /map /odom 100" />
+   
+
+  <include file="$(find rbx1_nav)/launch/tb_amcl.launch" />
+
+
+</launch>

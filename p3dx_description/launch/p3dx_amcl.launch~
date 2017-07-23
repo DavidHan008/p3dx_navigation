@@ -1,0 +1,20 @@
+<launch>
+
+  <param name="use_sim_time" value="false" />
+
+  <!-- Run the map server with the desired map -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_description)/SIG212.yaml"/>
+
+  <!-- Start move_base  -->
+ <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+    <rosparam file="$(find p3dx_description)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find p3dx_description)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find p3dx_description)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find p3dx_description)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find p3dx_description)/config/base_local_planner_params.yaml" command="load" />
+  </node>
+
+  <!-- Fire up AMCL -->
+  <include file="$(find rbx1_nav)/launch/tb_amcl.launch" />
+  
+</launch>

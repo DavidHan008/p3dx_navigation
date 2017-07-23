@@ -1,0 +1,7 @@
+<launch>
+  <arg name="host" default="192.168.0.1" />
+  <node pkg="lms1xx" name="lms1xx" type="LMS1xx_node">
+    <param name="host" value="$(arg host)" />
+    <remap from="RosAria/lms1xx_1_laserscan" to="scan"/>
+  </node>
+</launch>

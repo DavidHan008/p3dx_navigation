@@ -1,0 +1,9 @@
+
+<launch>
+
+<!-- Starting rosaria driver for motors and encoders -->
+  <node name="rosaria" pkg="rosaria" type="RosAria" args="_port:=/dev/ttyUSB0">
+
+  </node>
+  
+</launch>

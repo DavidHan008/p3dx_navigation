@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="rosaria_client" type="teleop" name="rosaria_client" output="screen"/>
+          <remap from="rosaria/cmd_vel" to="cmd_vel"/>
+          <remap from="rosaria/pose" to="odom"/>
+</launch>

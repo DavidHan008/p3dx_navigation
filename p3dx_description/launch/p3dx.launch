@@ -1,0 +1,13 @@
+<launch>
+
+<!-- Starting rosaria driver for motors and encoders -->
+  <node name="rosaria" pkg="rosaria" type="RosAria" args="_port:=/dev/ttyUSB0">
+  <param name="DriftFactor" value="0"/>
+  <param name="TicksMM" value="0"/> 
+  <param name="RevCount" value="0"/> 
+  <remap from="rosaria/cmd_vel" to="cmd_vel"/>
+  <remap from="rosaria/pose" to="odom"/>
+  <remap from="camera/rgb/image_color" to="android/camera_view"/>
+  </node>
+
+</launch>

@@ -1,0 +1,5 @@
+<launch>
+
+ <node pkg="rviz" type="rviz" name="rviz" args="-d $(find rbx1_apps/amcl2.rviz" output="screen"/>
+
+</launch>
